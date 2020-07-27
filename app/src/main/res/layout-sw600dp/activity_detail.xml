@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_recipie_info"
+    android:baselineAligned="false">
+    <FrameLayout
+    android:id="@+id/selectRecipieDetail"
+    android:layout_width="400dp"
+    android:layout_gravity="start"
+    android:name="com.example.my_baking_app.fragments.SelectedReciepeStepsFragment"
+    android:layout_height="match_parent"/>
+
+<View
+    android:layout_width="1dp"
+    android:layout_height="match_parent"
+    android:background="#CCBFBF"/>
+
+<LinearLayout
+    android:id="@+id/tabMode"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+<FrameLayout
+    android:id="@+id/playerFragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+<FrameLayout
+    android:id="@+id/descriptionFragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+</LinearLayout>
+
+</LinearLayout>
+
+
