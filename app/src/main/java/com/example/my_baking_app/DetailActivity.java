@@ -198,15 +198,15 @@ public class DetailActivity extends AppCompatActivity implements SelectedReciepe
         return super.onOptionsItemSelected(item);
     }
 
-    public void pass(int pos) {
+    /*public void pass(int pos) {
         if (mTwoPane) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             SelectedReciepeStepsFragment selectRecipeStep = new SelectedReciepeStepsFragment();
             Toast.makeText(this, "CLCIKED" + pos, Toast.LENGTH_SHORT).show();
             // PASS DATA
-           /* selectRecipeStep.setListOfIngredients(listOfIngredients);
+           *//* selectRecipeStep.setListOfIngredients(listOfIngredients);
             selectRecipeStep.setListofStep(listofSteps);
-            fragmentManager.beginTransaction().add(R.id.selectRecipieDetail,selectRecipeStep).commit();*/
+            fragmentManager.beginTransaction().add(R.id.selectRecipieDetail,selectRecipeStep).commit();*//*
 
             VideoPlayingFragment videoPlayingFragment = new VideoPlayingFragment();
             //PASS DATA
@@ -224,7 +224,7 @@ public class DetailActivity extends AppCompatActivity implements SelectedReciepe
 
         }
 
-    }
+    }*/
 
     private String ingredientsString() {
         String result = "";

@@ -1,5 +1,6 @@
 package com.example.my_baking_app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
@@ -19,6 +20,7 @@ public class RecipeStepActivity extends AppCompatActivity {
     VideoPlayingFragment videoPlayingFragment;
     InstructionFragment instructionFragment;
     FragmentManager fragmentManager;
+    Recipe.StepsBean object;
 
 
     @Override
@@ -26,7 +28,7 @@ public class RecipeStepActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_step);
         Intent intent=getIntent();
-        Recipe.StepsBean object=intent.getParcelableExtra(STEPS);
+        object=intent.getParcelableExtra(STEPS);
 
         Log.e(TAG,"DETAIL OF OBJECT :"+object.getVideoURL()+"\n"+object.getThumbnailURL()+"\n"+object.getDescription());
 
@@ -34,16 +36,29 @@ public class RecipeStepActivity extends AppCompatActivity {
         videoPlayingFragment.setObject(object);
         instructionFragment = new InstructionFragment();
         instructionFragment.setObject(object);
-        fragmentManager=getSupportFragmentManager();
+        /*fragmentManager=getSupportFragmentManager();
         fragmentManager.beginTransaction().add(R.id.playerFragment,videoPlayingFragment).commit();
-        fragmentManager.beginTransaction().add(R.id.descriptionFragment, instructionFragment).commit();
+        fragmentManager.beginTransaction().add(R.id.descriptionFragment, instructionFragment).commit();*/
+
+       //If savedInstance == null
+        if (savedInstanceState==null){
+            fragmentManager=getSupportFragmentManager();
+            fragmentManager.beginTransaction().add(R.id.playerFragment,videoPlayingFragment).commit();
+            fragmentManager.beginTransaction().add(R.id.descriptionFragment, instructionFragment).commit();
+        }else {
+            object=savedInstanceState.getParcelable("object");
+        }
 
 
 
 
 
+    }
 
-
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable("object",object);
     }
 
 }

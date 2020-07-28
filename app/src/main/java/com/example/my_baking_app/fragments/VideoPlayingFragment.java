@@ -109,8 +109,13 @@ public class VideoPlayingFragment extends Fragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+
+        //to get current position
+        playbackPosition=player.getCurrentPosition();
+
         outState.putLong(SELECTED_POSITION,playbackPosition);
         outState.putParcelable(OBJECT,object);
+
     }
 
     @Override
@@ -146,6 +151,7 @@ public class VideoPlayingFragment extends Fragment {
         }else{
             textView.setVisibility(View.VISIBLE);
             playerView.setVisibility(View.INVISIBLE);
+            progressBar.setVisibility(View.INVISIBLE);
         }
 
     }
