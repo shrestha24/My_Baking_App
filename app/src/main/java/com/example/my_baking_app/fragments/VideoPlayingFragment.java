@@ -109,10 +109,6 @@ public class VideoPlayingFragment extends Fragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-
-        //to get current position
-        playbackPosition=player.getCurrentPosition();
-
         outState.putLong(SELECTED_POSITION,playbackPosition);
         outState.putParcelable(OBJECT,object);
 

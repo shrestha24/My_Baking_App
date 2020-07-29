@@ -41,24 +41,16 @@ public class RecipeStepActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().add(R.id.descriptionFragment, instructionFragment).commit();*/
 
        //If savedInstance == null
-        if (savedInstanceState==null){
-            fragmentManager=getSupportFragmentManager();
-            fragmentManager.beginTransaction().add(R.id.playerFragment,videoPlayingFragment).commit();
+        if (savedInstanceState==null) {
+            fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().add(R.id.playerFragment, videoPlayingFragment).commit();
             fragmentManager.beginTransaction().add(R.id.descriptionFragment, instructionFragment).commit();
-        }else {
-            object=savedInstanceState.getParcelable("object");
         }
 
 
 
 
-
     }
 
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putParcelable("object",object);
-    }
 
 }
